@@ -15,6 +15,18 @@ class _home extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        actions: [
+          Container(
+              margin: EdgeInsets.only(right: 10),
+              child: Icon(
+                Icons.shutter_speed,
+                color: Colors.black,
+              ))
+        ],
+      ),
       backgroundColor: Colors.white,
       body: Stack(
         children: [
@@ -55,6 +67,7 @@ class _home extends State<Home> {
             right: 16.0,
             child: FloatingActionButton(
               backgroundColor: UtilColor.mainColor,
+
               onPressed: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => Upload()));
@@ -133,13 +146,17 @@ class _itemList extends State<ItemList> {
                                 child: Text(
                                   widget.title,
                                   style: Theme.of(context).textTheme.headline1,
+
                                 ),
                               ),
                               Container(
                                 margin: EdgeInsets.only(top: 20, bottom: 10),
-                                child: Text(widget.place,
-                                    style:
-                                        Theme.of(context).textTheme.subtitle1),
+
+                                child: Text(
+                                  widget.place,
+                                  style: Theme.of(context).textTheme.subtitle1
+
+                                ),
                               ),
                             ],
                           ),

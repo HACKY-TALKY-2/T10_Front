@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+
 import 'package:t10_front/utils/colors.dart';
 
 class Info extends StatefulWidget {
@@ -9,8 +11,8 @@ class Info extends StatefulWidget {
   @override
   _info createState() => _info();
 }
+  var _controller = TextEditingController();
 
-var _controller = TextEditingController();
 
 void _showAlertDialog(BuildContext context, String text) {
   String IsTab = '';
@@ -34,9 +36,7 @@ void _showAlertDialog(BuildContext context, String text) {
                 width: 70,
                 child: TextField(
                   keyboardType: TextInputType.number, // 키보드 타입을 숫자로 설정
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly
-                  ],
+                  inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
                   controller: _controller,
                   cursorColor: UtilColor.mainColor,
                   decoration: InputDecoration(
@@ -49,10 +49,7 @@ void _showAlertDialog(BuildContext context, String text) {
                   ),
                 ),
               ),
-              Text(
-                '개',
-                style: Theme.of(context).textTheme.headline1,
-              )
+              Text('개', style: Theme.of(context).textTheme.headline1,)
             ],
           ),
           actions: <Widget>[
@@ -103,8 +100,7 @@ void _showAlertDialog(BuildContext context, String text) {
                       ),
                       child: Align(
                         alignment: Alignment.center,
-                        child: Text(
-                          '취소',
+                        child: Text('취소',
                           style: IsTab == 'cancel'
                               ? Theme.of(context).textTheme.headline1
                               : TextStyle(
@@ -130,10 +126,8 @@ void _showAlertDialog(BuildContext context, String text) {
     },
   );
 }
-
 class _info extends State<Info> {
   final PageController _pageController = PageController();
-  final List<String> _pageTitles = ['Image 1', 'Image 2', 'Image 3'];
   int _currentPage = 0;
 
   @override
@@ -160,11 +154,6 @@ class _info extends State<Info> {
               Container(
                 height: 400,
                 color: Colors.amber,
-                child: PageView(
-                  controller: _pageController,
-                  children:
-                      _pageTitles.map((title) => _buildPage(title)).toList(),
-                ),
               ),
               Container(
                 child: IconButton(
