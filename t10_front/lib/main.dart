@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 import 'package:t10_front/navigation.dart';
 import 'package:t10_front/services/chargeService.dart';
 import 'package:t10_front/services/postService.dart';
 
+import 'package:t10_front/pages/alert/ViewAlert.dart';
+
+
+import 'package:t10_front/pages/home/Home.dart';
+import 'package:t10_front/pages/participate/Participate.dart';
+import 'package:t10_front/utils/colors.dart';
+import 'package:t10_front/pages/charge/ViewChargeHistory.dart';
+
+
 final ThemeData myTheme = ThemeData(
     textTheme: const TextTheme(
-  headline1: TextStyle(
-      fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black),
+  headline1: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black),
   headline2: TextStyle(fontSize: 10.0, color: Colors.black),
-  headline3: TextStyle(
-      fontSize: 13.0,
-      fontWeight: FontWeight.bold,
-      color: Color.fromARGB(255, 201, 201, 201)),
+  headline3: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: UtilColor.lightGrey),
   subtitle1:
-      TextStyle(fontSize: 10.0, color: Color.fromARGB(255, 201, 201, 201)),
+      TextStyle(fontSize: 10.0, color: UtilColor.lightGrey),
   subtitle2: TextStyle(fontSize: 13.0, color: Colors.black),
 ));
 void main() {

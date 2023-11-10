@@ -117,9 +117,11 @@ class _itemList extends State<ItemList> {
                               ),
                               Container(
                                 margin: EdgeInsets.only(top: 20, bottom: 10),
-                                child: Text(widget.place,
-                                    style:
-                                        Theme.of(context).textTheme.subtitle1),
+                                child: Text(
+                                  widget.place,
+                                  style: Theme.of(context).textTheme.subtitle1
+
+                                ),
                               ),
                             ],
                           ),
@@ -165,6 +167,7 @@ class _itemList extends State<ItemList> {
                 child: Text(
                   '1개 당 10,000원',
                   style: Theme.of(context).textTheme.headline1,
+
                 ),
                 margin: EdgeInsets.all(15),
               ),
@@ -174,10 +177,10 @@ class _itemList extends State<ItemList> {
       ),
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Info(),
-            ));
+
+          context,
+          MaterialPageRoute(builder:(context) => Info(),)
+        );
       },
     );
   }

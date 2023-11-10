@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:t10_front/pages/participate/Current.dart';
 import 'package:t10_front/pages/participate/Done.dart';
+import 'package:t10_front/pages/participate/Current.dart';
 import 'package:t10_front/utils/colors.dart';
 
 class Participate extends StatefulWidget {
@@ -33,22 +33,21 @@ class _ParticipateState extends State<Participate>
     return Scaffold(
       appBar: AppBar(
         actions: [
-          Container(
-              margin: EdgeInsets.only(right: 10),
-              child: Icon(
-                Icons.shutter_speed,
-                color: Colors.black,
-              ))
-        ],
+
+            Container(
+                margin: EdgeInsets.only(right: 10),
+                child: Icon(
+                  Icons.shutter_speed,
+                  color: Colors.black,
+                ))
+          ],
         backgroundColor: Colors.white,
         bottom: TabBar(
           indicatorColor: UtilColor.mainColor,
           controller: _tabController,
           labelColor: UtilColor.mainColor,
           tabs: [
-            Tab(
-              text: '참여 중',
-            ),
+            Tab(text: '참여 중', ),
             Tab(text: '수령 완료'),
           ],
         ),

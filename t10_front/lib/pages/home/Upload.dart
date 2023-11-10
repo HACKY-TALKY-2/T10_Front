@@ -5,6 +5,7 @@ import 'package:t10_front/model/PostModel.dart';
 import 'package:t10_front/services/postService.dart';
 import 'package:t10_front/utils/colors.dart';
 
+
 class Upload extends StatefulWidget {
   const Upload({Key? key}) : super(key: key);
 
@@ -504,4 +505,5 @@ class _upload extends State<Upload> {
   //         : (value1 / value2).toInt().toString() + "원";
   //   });
   // }
+
 }
