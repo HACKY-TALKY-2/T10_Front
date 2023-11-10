@@ -34,7 +34,7 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
+                padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width,
                   decoration: BoxDecoration(
@@ -300,7 +300,7 @@ class HistoryCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      '\$50.00',
+                      '500,000원',
                       textAlign: TextAlign.end,
                       style: TextStyle(
                         fontFamily: 'Outfit',
@@ -312,7 +312,7 @@ class HistoryCard extends StatelessWidget {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                       child: Text(
-                        'Tues. 15, 4:32',
+                        '23.04.12 4:32',
                         textAlign: TextAlign.end,
                         style: TextStyle(
                           fontFamily: 'Plus Jakarta Sans',
