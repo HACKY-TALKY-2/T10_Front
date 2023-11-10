@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:t10_front/Home.dart';
+import 'package:t10_front/pages/alert/ViewAlert.dart';
 import 'package:t10_front/pages/charge/ViewChargeHistory.dart';
 
 void main() {
@@ -28,7 +29,7 @@ class _MainApp extends State<MainApp> {
       Home(),
       Home(),
       ViewChargeHistoryWidget(),
-      Home(),
+      ViewAlertPageWidget(),
     ];
   }
 
