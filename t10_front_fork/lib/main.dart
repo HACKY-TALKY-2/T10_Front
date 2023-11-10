@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:t10_front/Home.dart';
+import 'package:t10_front/pages/charge/ViewChargeHistory.dart';
 
 void main() {
   runApp(
@@ -26,7 +27,7 @@ class _MainApp extends State<MainApp> {
     _pages = [
       Home(),
       Home(),
-      Home(),
+      ViewChargeHistoryWidget(),
       Home(),
     ];
   }
@@ -74,11 +75,13 @@ class _MainApp extends State<MainApp> {
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: TabItem(currentIndex: 2, name: '충전', icon: Icons.charging_station),
+              icon: TabItem(
+                  currentIndex: 2, name: '충전', icon: Icons.charging_station),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: TabItem(currentIndex: 3, name: '알림', icon: Icons.notification_add),
+              icon: TabItem(
+                  currentIndex: 3, name: '알림', icon: Icons.notification_add),
               label: '',
             ),
           ],
