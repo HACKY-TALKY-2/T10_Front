@@ -34,6 +34,11 @@ class _MainApp extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(actions: [
+        Container(
+          margin: EdgeInsets.only(right: 10), 
+          child: Icon(Icons.abc))
+      ]),
       extendBody: true,
       body: _pages[_currentIndex],
       bottomNavigationBar: Container(
