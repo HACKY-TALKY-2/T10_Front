@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:t10_front/etc/account.dart';
 import 'package:t10_front/pages/charge/EnterTurnOver.dart';
+import 'package:t10_front/utils/colors.dart';
 
 class SelectAccountPageWidget extends StatefulWidget {
   const SelectAccountPageWidget({Key? key}) : super(key: key);
@@ -30,8 +31,17 @@ class _SelectAccountPageWidgetState extends State<SelectAccountPageWidget> {
         key: scaffoldKey,
         backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Color(0xFFF1F4F8),
+          backgroundColor: Colors.white,
           automaticallyImplyLeading: false,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            ),
+          ),
           actions: [],
           centerTitle: false,
           elevation: 0,
@@ -46,10 +56,9 @@ class _SelectAccountPageWidgetState extends State<SelectAccountPageWidget> {
                 child: Text(
                   '어디로 돈을 보낼까요?',
                   style: TextStyle(
-                    fontFamily: 'Outfit',
                     color: Color(0xFF14181B),
-                    fontSize: 28,
-                    fontWeight: FontWeight.w500,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
               ),
@@ -63,13 +72,9 @@ class _SelectAccountPageWidgetState extends State<SelectAccountPageWidget> {
                         autofocus: true,
                         obscureText: false,
                         decoration: InputDecoration(
+                          focusColor: UtilColor.mainColor,
                           labelText: '계좌번호 입력',
-                          labelStyle: TextStyle(
-                            fontFamily: 'Plus Jakarta Sans',
-                            color: Color(0xFF57636C),
-                            fontSize: 20,
-                            fontWeight: FontWeight.normal,
-                          ),
+                          labelStyle: Theme.of(context).textTheme.headline1,
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFF57636C),
@@ -121,27 +126,13 @@ class _SelectAccountPageWidgetState extends State<SelectAccountPageWidget> {
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(24, 24, 0, 12),
-                child: Text(
-                  '내 계좌',
-                  style: TextStyle(
-                    fontFamily: 'Plus Jakarta Sans',
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
+                child:
+                    Text('내 계좌', style: Theme.of(context).textTheme.headline1),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
-                child: Text(
-                  '송금할 계좌를 선택하세요',
-                  style: TextStyle(
-                    fontFamily: 'Plus Jakarta Sans',
-                    color: Color(0xFF57636C),
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
+                child: Text('송금할 계좌를 선택하세요',
+                    style: Theme.of(context).textTheme.subtitle1),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 44),
@@ -214,30 +205,17 @@ class AccountCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            accounts[index],
-                            style: TextStyle(
-                              fontFamily: 'Plus Jakarta Sans',
-                              color: Color(0xFF14181B),
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          Text(accounts[index],
+                              style: Theme.of(context).textTheme.headline1),
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
-                                child: Text(
-                                  accountNumbers[index],
-                                  style: TextStyle(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF57636C),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
+                                child: Text(accountNumbers[index],
+                                    style:
+                                        Theme.of(context).textTheme.subtitle1),
                               ),
                             ],
                           ),

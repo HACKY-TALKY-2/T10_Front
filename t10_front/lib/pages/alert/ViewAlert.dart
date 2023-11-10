@@ -31,7 +31,6 @@ class _ViewAlertPageWidgetState extends State<ViewAlertPageWidget> {
           appBar: AppBar(
               title: Container(
                 margin: EdgeInsets.all(15),
-                child: Text("알림", style: TextStyle(fontSize: 24)),
               ),
               elevation: 0.0,
               backgroundColor: Colors.white,
@@ -168,11 +167,7 @@ class AlertCard extends StatelessWidget {
                                     children: [
                                       Text(
                                         alertText,
-                                        style: TextStyle(
-                                            fontFamily: "SUITE",
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                            color: const Color(0xff212121)),
+                                        style: Theme.of(context).textTheme.headline1,
                                       ),
                                     ],
                                   ),
@@ -181,11 +176,7 @@ class AlertCard extends StatelessWidget {
                                         0, 4, 0, 0),
                                     child: Text(
                                       alertDetailText,
-                                      style: TextStyle(
-                                          fontFamily: 'SUITE',
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.normal,
-                                          color: const Color(0xff757575)),
+                                      style: Theme.of(context).textTheme.headline2,
                                     ),
                                   ),
                                 ],
@@ -204,15 +195,15 @@ class AlertCard extends StatelessWidget {
                                 children: [
                                   TextSpan(
                                     text: "yyyy.MM.dd",
-                                    style: TextStyle(),
+                                      style: Theme.of(context).textTheme.subtitle1,
                                   ),
                                   TextSpan(
                                     text: ' | ',
-                                    style: TextStyle(),
+                                      style: Theme.of(context).textTheme.subtitle1,
                                   ),
                                   TextSpan(
                                     text: "hh:mm",
-                                    style: TextStyle(),
+                                      style: Theme.of(context).textTheme.subtitle1,
                                   ),
                                 ],
                                 style: TextStyle(
