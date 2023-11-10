@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:t10_front/pages/charge/SelectAccount.dart';
+import 'package:t10_front/utils/colors.dart';
 
 class ViewChargeHistoryWidget extends StatefulWidget {
   const ViewChargeHistoryWidget({Key? key}) : super(key: key);
@@ -26,21 +27,14 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
-          title: Container(
-            margin: EdgeInsets.all(15),
-            child: Text("계좌 충전", style: TextStyle(fontSize: 24)),
-          ),
-          elevation: 0.0,
-          backgroundColor: Colors.white,
-          actions: [
-            Container(
-                margin: EdgeInsets.only(right: 10),
-                child: Icon(
-                  Icons.shutter_speed,
-                  color: Colors.black,
-                ))
-          ]),
+      appBar: AppBar(elevation: 0.0, backgroundColor: Colors.white, actions: [
+        Container(
+            margin: EdgeInsets.only(right: 10),
+            child: Icon(
+              Icons.shutter_speed,
+              color: Colors.black,
+            ))
+      ]),
       backgroundColor: Colors.white,
       body: SafeArea(
         top: true,
@@ -53,7 +47,7 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
                 child: Container(
                   width: MediaQuery.sizeOf(context).width,
                   decoration: BoxDecoration(
-                    color: Color(0xFFF1F4F8),
+                    color: UtilColor.mainColor,
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(16),
                       bottomRight: Radius.circular(16),
@@ -74,16 +68,11 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
                               Expanded(
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 4, 0, 0),
-                                  child: Text(
-                                    '당근머니',
-                                    style: TextStyle(
-                                      fontFamily: 'Outfit',
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
+                                      0, 10, 0, 0),
+                                  child: Text('당근머니',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline1),
                                 ),
                               ),
                             ],
@@ -93,7 +82,6 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Padding(
                                 padding:
@@ -103,7 +91,7 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
                                   style: TextStyle(
                                     fontFamily: 'Outfit',
                                     color: Colors.black,
-                                    fontSize: 36,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -112,12 +100,13 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(20, 8, 20, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(50, 20, 50, 10),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Container(
+                              GestureDetector(
+                                child: Container(
                                   width: 150,
                                   height: 40,
                                   decoration: ShapeDecoration(
@@ -126,30 +115,32 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                   ),
-                                  child: InkWell(
-                                    onTap: () {
-                                      Navigator.of(context).pushReplacement(
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                SelectAccountPageWidget()),
-                                      );
-                                    },
-                                    child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(Icons.add),
-                                          Text(
-                                            '충전',
-                                            style: TextStyle(
-                                              fontFamily: 'Plus Jakarta Sans',
-                                              color: Colors.black,
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                                  child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          margin: EdgeInsets.all(5),
+                                          child: Icon(
+                                            Icons.add,
+                                            size: 20,
                                           ),
-                                        ]),
-                                  )),
+                                        ),
+                                        Text('충전',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headline1),
+                                      ]),
+                                ),
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            SelectAccountPageWidget(),
+                                      ));
+                                },
+                              ),
                               Container(
                                 width: 150,
                                 height: 40,
@@ -162,16 +153,11 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
                                 child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Icon(Icons.attach_money),
-                                      Text(
-                                        '계좌송금',
-                                        style: TextStyle(
-                                          fontFamily: 'Plus Jakarta Sans',
-                                          color: Colors.black,
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
+                                          Container(margin: EdgeInsets.all(5), child: Icon(Icons.attach_money, size: 20,),),
+                                      Text('계좌송금',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headline1),
                                     ]),
                               ),
                             ],
@@ -188,15 +174,8 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
                 children: [
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
-                    child: Text(
-                      '거래내역',
-                      style: TextStyle(
-                        fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
+                    child: Text('거래내역',
+                        style: Theme.of(context).textTheme.headline1),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 24),
@@ -232,9 +211,9 @@ class HistoryCard extends StatelessWidget {
         height: 70,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: Color(0xFFF1F4F8),
+            color: UtilColor.lightGrey,
             width: 1,
           ),
         ),
@@ -270,26 +249,12 @@ class HistoryCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        '오늘의 소비 지원금',
-                        style: TextStyle(
-                          fontFamily: 'Plus Jakarta Sans',
-                          color: Color(0xFF14181B),
-                          fontSize: 16,
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ),
+                      Text('오늘의 소비 지원금',
+                          style: Theme.of(context).textTheme.headline1),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
-                        child: Text(
-                          '수입',
-                          style: TextStyle(
-                            fontFamily: 'Plus Jakarta Sans',
-                            color: Color(0xFF57636C),
-                            fontSize: 12,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
+                        child: Text('수입',
+                            style: Theme.of(context).textTheme.headline2),
                       ),
                     ],
                   ),
@@ -302,28 +267,14 @@ class HistoryCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(
-                      '\500,000',
-                      textAlign: TextAlign.end,
-                      style: TextStyle(
-                        fontFamily: 'Outfit',
-                        color: Color(0xFF090F13),
-                        fontSize: 22,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                    Text('\500,000',
+                        textAlign: TextAlign.end,
+                        style: Theme.of(context).textTheme.headline1),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
-                      child: Text(
-                        'Tues. 15, 4:32',
-                        textAlign: TextAlign.end,
-                        style: TextStyle(
-                          fontFamily: 'Plus Jakarta Sans',
-                          color: Color(0xFF57636C),
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ),
+                      child: Text('Tues. 15, 4:32',
+                          textAlign: TextAlign.end,
+                          style: Theme.of(context).textTheme.subtitle1),
                     ),
                   ],
                 ),
