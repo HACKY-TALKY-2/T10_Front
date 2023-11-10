@@ -1,79 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:t10_front/pages/home/Info.dart';
-import 'package:t10_front/pages/home/Upload.dart';
 import 'package:t10_front/utils/colors.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class Current extends StatefulWidget {
+  const Current({Key? key}) : super(key: key);
 
   @override
-  _home createState() => _home();
+  _current createState() => _current();
 }
 
-class _home extends State<Home> {
+class _current extends State<Current> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-        actions: [
-          Container(
-              margin: EdgeInsets.only(right: 10),
-              child: Icon(
-                Icons.shutter_speed,
-                color: Colors.black,
-              ))
-        ],
-      ),
       backgroundColor: Colors.white,
-      body: Stack(
+      body: Column(
         children: [
-          Column(
-            children: [
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      ListTile(
-                        title: ItemList(
-                          title: '책상',
-                          place: '1길',
-                          total: 5,
-                          current: 2,
-                          isNear: false,
-                        ),
-                      ),
-                      ListTile(
-                        title: ItemList(
-                          title: '물',
-                          place: '2길',
-                          total: 100,
-                          current: 70,
-                          isNear: true,
-                        ),
-                      ),
-                      // Add more ListTiles as needed
-                    ],
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ListTile(
+                    title: ItemList(
+                      title: '책상',
+                      place: '1길',
+                      total: 5,
+                      current: 2,
+                      isNear: false,
+                    ),
                   ),
-                ),
+                  ListTile(
+                    title: ItemList(
+                      title: '물',
+                      place: '2길',
+                      total: 100,
+                      current: 70,
+                      isNear: true,
+                    ),
+                  ),
+                  // Add more ListTiles as needed
+                ],
               ),
-            ],
-          ),
-          Positioned(
-            bottom: 16.0,
-            right: 16.0,
-            child: FloatingActionButton(
-
-              backgroundColor: UtilColor.mainColor,
-
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Upload()));
-              },
-              child: Icon(Icons.add, color: Colors.white,),
             ),
           ),
         ],
@@ -110,9 +79,7 @@ class _itemList extends State<ItemList> {
         margin: EdgeInsets.only(top: 10, bottom: 10),
         decoration: BoxDecoration(
           border: Border.all(
-
             color: UtilColor.lightGrey,
-
             width: 1,
           ),
           borderRadius: BorderRadius.circular(10),
@@ -126,9 +93,7 @@ class _itemList extends State<ItemList> {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-
                       color: UtilColor.mainColor),
-
                   margin: EdgeInsets.all(10),
                   width: 70,
                   height: 70,
@@ -147,18 +112,14 @@ class _itemList extends State<ItemList> {
                                     right: 10, top: 20, bottom: 10),
                                 child: Text(
                                   widget.title,
-
-                                  style: Theme.of(context).textTheme.headline1,
-
+                                  style: Theme.of(context).textTheme.headline3,
                                 ),
                               ),
                               Container(
                                 margin: EdgeInsets.only(top: 20, bottom: 10),
-                                child: Text(
-                                  widget.place,
-                                  style: Theme.of(context).textTheme.subtitle1
-
-                                ),
+                                child: Text(widget.place,
+                                    style:
+                                        Theme.of(context).textTheme.subtitle1),
                               ),
                             ],
                           ),
@@ -168,10 +129,8 @@ class _itemList extends State<ItemList> {
                               child: Column(children: [
                                 Icon(Icons.fire_truck),
                                 Text(
-                                  '마감 임박!',
-
+                                  '마감',
                                   style: Theme.of(context).textTheme.subtitle1,
-
                                 )
                               ]),
                             )
@@ -187,14 +146,12 @@ class _itemList extends State<ItemList> {
                               lineHeight: 10,
                               backgroundColor: Colors.black,
                               progressColor: UtilColor.mainColor,
-
                               width: 90,
                             ),
                           ),
                           Text(
                             '${widget.current}/${widget.total}',
                             style: Theme.of(context).textTheme.subtitle1,
-
                           ),
                         ],
                       ),
@@ -207,8 +164,7 @@ class _itemList extends State<ItemList> {
               child: Container(
                 child: Text(
                   '1개 당 10,000원',
-                  style: Theme.of(context).textTheme.headline1,
-
+                  style: Theme.of(context).textTheme.headline3,
                 ),
                 margin: EdgeInsets.all(15),
               ),
@@ -218,9 +174,10 @@ class _itemList extends State<ItemList> {
       ),
       onTap: () {
         Navigator.push(
-          context,
-          MaterialPageRoute(builder:(context) => Info(),)
-        );
+            context,
+            MaterialPageRoute(
+              builder: (context) => Info(),
+            ));
       },
     );
   }
