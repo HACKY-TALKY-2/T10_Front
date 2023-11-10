@@ -33,6 +33,7 @@ class _ParticipateState extends State<Participate>
     return Scaffold(
       appBar: AppBar(
         actions: [
+
             Container(
                 margin: EdgeInsets.only(right: 10),
                 child: Icon(

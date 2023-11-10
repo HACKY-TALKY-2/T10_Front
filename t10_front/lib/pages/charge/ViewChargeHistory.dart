@@ -235,7 +235,7 @@ class HistoryCard extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                     child: Icon(
                       Icons.monetization_on_rounded,
-                      color: Color(0xFF4B39EF),
+                      color: UtilColor.mainColor,
                       size: 24,
                     ),
                   ),

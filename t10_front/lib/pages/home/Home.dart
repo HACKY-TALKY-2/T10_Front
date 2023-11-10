@@ -66,14 +66,16 @@ class _home extends State<Home> {
             bottom: 16.0,
             right: 16.0,
             child: FloatingActionButton(
-
               backgroundColor: UtilColor.mainColor,
 
               onPressed: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => Upload()));
               },
-              child: Icon(Icons.add, color: Colors.white,),
+              child: Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
             ),
           ),
         ],
@@ -110,9 +112,7 @@ class _itemList extends State<ItemList> {
         margin: EdgeInsets.only(top: 10, bottom: 10),
         decoration: BoxDecoration(
           border: Border.all(
-
             color: UtilColor.lightGrey,
-
             width: 1,
           ),
           borderRadius: BorderRadius.circular(10),
@@ -126,9 +126,7 @@ class _itemList extends State<ItemList> {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-
                       color: UtilColor.mainColor),
-
                   margin: EdgeInsets.all(10),
                   width: 70,
                   height: 70,
@@ -147,13 +145,13 @@ class _itemList extends State<ItemList> {
                                     right: 10, top: 20, bottom: 10),
                                 child: Text(
                                   widget.title,
-
                                   style: Theme.of(context).textTheme.headline1,
 
                                 ),
                               ),
                               Container(
                                 margin: EdgeInsets.only(top: 20, bottom: 10),
+
                                 child: Text(
                                   widget.place,
                                   style: Theme.of(context).textTheme.subtitle1
@@ -169,9 +167,7 @@ class _itemList extends State<ItemList> {
                                 Icon(Icons.fire_truck),
                                 Text(
                                   '마감 임박!',
-
                                   style: Theme.of(context).textTheme.subtitle1,
-
                                 )
                               ]),
                             )
@@ -187,14 +183,12 @@ class _itemList extends State<ItemList> {
                               lineHeight: 10,
                               backgroundColor: Colors.black,
                               progressColor: UtilColor.mainColor,
-
                               width: 90,
                             ),
                           ),
                           Text(
                             '${widget.current}/${widget.total}',
                             style: Theme.of(context).textTheme.subtitle1,
-
                           ),
                         ],
                       ),
@@ -208,7 +202,6 @@ class _itemList extends State<ItemList> {
                 child: Text(
                   '1개 당 10,000원',
                   style: Theme.of(context).textTheme.headline1,
-
                 ),
                 margin: EdgeInsets.all(15),
               ),
@@ -218,9 +211,10 @@ class _itemList extends State<ItemList> {
       ),
       onTap: () {
         Navigator.push(
-          context,
-          MaterialPageRoute(builder:(context) => Info(),)
-        );
+            context,
+            MaterialPageRoute(
+              builder: (context) => Info(),
+            ));
       },
     );
   }
