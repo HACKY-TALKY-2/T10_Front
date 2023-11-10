@@ -1,79 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:t10_front/pages/home/Info.dart';
-import 'package:t10_front/pages/home/Upload.dart';
 import 'package:t10_front/utils/colors.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class Done extends StatefulWidget {
+  const Done({Key? key}) : super(key: key);
 
   @override
-  _home createState() => _home();
+  _done createState() => _done();
 }
 
-class _home extends State<Home> {
+class _done extends State<Done> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-        actions: [
-          Container(
-              margin: EdgeInsets.only(right: 10),
-              child: Icon(
-                Icons.shutter_speed,
-                color: Colors.black,
-              ))
-        ],
-      ),
       backgroundColor: Colors.white,
-      body: Stack(
+      body: Column(
         children: [
-          Column(
-            children: [
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      ListTile(
-                        title: ItemList(
-                          title: '책상',
-                          place: '1길',
-                          total: 5,
-                          current: 2,
-                          isNear: false,
-                        ),
-                      ),
-                      ListTile(
-                        title: ItemList(
-                          title: '물',
-                          place: '2길',
-                          total: 100,
-                          current: 70,
-                          isNear: true,
-                        ),
-                      ),
-                      // Add more ListTiles as needed
-                    ],
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ListTile(
+                    title: ItemList(
+                      title: '책상',
+                      place: '1길',
+                      total: 5,
+                      current: 2,
+                      isNear: false,
+                    ),
                   ),
-                ),
+                  ListTile(
+                    title: ItemList(
+                      title: '물',
+                      place: '2길',
+                      total: 100,
+                      current: 70,
+                      isNear: true,
+                    ),
+                  ),
+                  // Add more ListTiles as needed
+                ],
               ),
-            ],
-          ),
-          Positioned(
-            bottom: 16.0,
-            right: 16.0,
-            child: FloatingActionButton(
-
-              backgroundColor: UtilColor.mainColor,
-
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Upload()));
-              },
-              child: Icon(Icons.add, color: Colors.white,),
             ),
           ),
         ],

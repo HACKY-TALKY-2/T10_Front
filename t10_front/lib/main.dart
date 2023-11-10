@@ -11,8 +11,9 @@ final ThemeData myTheme = ThemeData(
     textTheme: const TextTheme(
   headline1: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black),
   headline2: TextStyle(fontSize: 10.0, color: Colors.black),
+  headline3: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: UtilColor.lightGrey),
   subtitle1:
-      TextStyle(fontSize: 10.0, color: Color.fromARGB(255, 117, 117, 117)),
+      TextStyle(fontSize: 10.0, color: UtilColor.lightGrey),
   subtitle2: TextStyle(fontSize: 13.0, color: Colors.black),
 ));
 void main() {
