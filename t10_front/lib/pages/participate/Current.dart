@@ -164,7 +164,10 @@ class _itemList extends State<ItemList> {
               child: Container(
                 child: Text(
                   '1개 당 10,000원',
-                  style: Theme.of(context).textTheme.headline3,
+                  style: TextStyle(
+                      fontSize: 13.0,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 201, 201, 201)),
                 ),
                 margin: EdgeInsets.all(15),
               ),
