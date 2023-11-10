@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:t10_front/pages/alert/ViewAlert.dart';
 import 'package:t10_front/pages/home/Home.dart';
 import 'package:t10_front/pages/participate/Participate.dart';
 import 'package:t10_front/utils/colors.dart';
+import 'package:t10_front/pages/charge/ViewChargeHistory.dart';
 
+final ThemeData myTheme = ThemeData(
+    textTheme: const TextTheme(
+  headline1: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black),
+  headline2: TextStyle(fontSize: 10.0, color: Colors.black),
+  subtitle1:
+      TextStyle(fontSize: 10.0, color: Color.fromARGB(255, 117, 117, 117)),
+  subtitle2: TextStyle(fontSize: 13.0, color: Colors.black),
+));
 void main() {
   runApp(
-    MaterialApp(debugShowCheckedModeBanner: false, home: MainApp()),
+    MaterialApp(
+        theme: myTheme, debugShowCheckedModeBanner: false, home: MainApp()),
   );
 }
 
@@ -28,8 +39,8 @@ class _MainApp extends State<MainApp> {
     _pages = [
       Home(),
       Participate(),
-      Home(),
-      Home(),
+      ViewChargeHistoryWidget(),
+      ViewAlertPageWidget(),
     ];
   }
 
@@ -56,7 +67,7 @@ class _MainApp extends State<MainApp> {
         ]),
         height: 120,
         child: BottomNavigationBar(
-          selectedIconTheme: IconThemeData(color: UtilColor.MainColor),
+          selectedIconTheme: IconThemeData(color: UtilColor.mainColor),
           selectedLabelStyle: TextStyle(
             color: Color.fromRGBO(48, 48, 48, 0.8),
             fontSize: 10,
