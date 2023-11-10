@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:t10_front/pages/charge/SelectAccount.dart';
+import 'package:t10_front/utils/colors.dart';
 
 class ViewChargeHistoryWidget extends StatefulWidget {
   const ViewChargeHistoryWidget({Key? key}) : super(key: key);
@@ -256,7 +257,7 @@ class HistoryCard extends StatelessWidget {
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                     child: Icon(
                       Icons.monetization_on_rounded,
-                      color: Color(0xFF4B39EF),
+                      color: UtilColor.mainColor,
                       size: 24,
                     ),
                   ),
