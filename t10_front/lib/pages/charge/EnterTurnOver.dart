@@ -44,9 +44,9 @@ class _EnterTurnOverPageWidgetState extends State<EnterTurnOverPageWidget> {
                   child: Column(
                     children: [
                       Text("토스머니 충전",
-                          style: Theme.of(context).textTheme.headline1),
+                          style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black)),
                       Text("잔액 : 170,120원",
-                          style: Theme.of(context).textTheme.headline2)
+                          style: TextStyle(fontSize: 10.0, color: Colors.black))
                     ],
                   ),
                 ),
@@ -119,7 +119,7 @@ class _EnterTurnOverPageWidgetState extends State<EnterTurnOverPageWidget> {
                         margin: EdgeInsets.only(top: 20),
                         child: Column(
                           children: <Widget>[
-                            Text("충전 완료", style: Theme.of(context).textTheme.headline1,),
+                            Text("충전 완료", style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black)),
                           ],
                         ),
                       ),
@@ -129,7 +129,7 @@ class _EnterTurnOverPageWidgetState extends State<EnterTurnOverPageWidget> {
                         children: <Widget>[
                           Text(
                             "당근 페이 충전 완료되었습니다!",
-                            style: Theme.of(context).textTheme.headline2,
+                            style: TextStyle(fontSize: 10.0, color: Colors.black),
                           ),
                         ],
                       ),

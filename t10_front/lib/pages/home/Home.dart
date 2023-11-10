@@ -25,25 +25,6 @@ class _home extends State<Home> {
         return Scaffold(
           backgroundColor: Colors.white,
           body: Stack(
-
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-        actions: [
-          Container(
-              margin: EdgeInsets.only(right: 10),
-              child: Icon(
-                Icons.shutter_speed,
-                color: Colors.black,
-              ))
-        ],
-      ),
-      backgroundColor: Colors.white,
-      body: Stack(
-        children: [
-          Column(
-
             children: [
               Column(
                 children: [
@@ -54,8 +35,8 @@ class _home extends State<Home> {
                         children: [
                           ListTile(
                             title: ItemList(
-                              title: "",
-                              place: "",
+                              title: "책상",
+                              place: "1길",
                               total: 1,
                               current: 1,
                               isNear: false,
@@ -63,8 +44,8 @@ class _home extends State<Home> {
                           ),
                           ListTile(
                             title: ItemList(
-                              title: "",
-                              place: "",
+                              title: "물",
+                              place: "2길",
                               total: 2,
                               current: 1,
                               isNear: false,
@@ -72,8 +53,8 @@ class _home extends State<Home> {
                           ),
                           ListTile(
                             title: ItemList(
-                              title: "",
-                              place: "",
+                              title: "침대",
+                              place: "3길",
                               total: 2,
                               current: 1,
                               isNear: false,
@@ -105,24 +86,6 @@ class _home extends State<Home> {
           ),
         );
       },
-          Positioned(
-            bottom: 16.0,
-            right: 16.0,
-            child: FloatingActionButton(
-              backgroundColor: UtilColor.mainColor,
-
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Upload()));
-              },
-              child: Icon(
-                Icons.add,
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
@@ -188,18 +151,14 @@ class _itemList extends State<ItemList> {
                                     right: 10, top: 20, bottom: 10),
                                 child: Text(
                                   widget.title,
-                                  style: Theme.of(context).textTheme.headline1,
-
+                                  style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black),
                                 ),
                               ),
                               Container(
                                 margin: EdgeInsets.only(top: 20, bottom: 10),
-
-                                child: Text(
-                                  widget.place,
-                                  style: Theme.of(context).textTheme.subtitle1
-
-                                ),
+                                child: Text(widget.place,
+                                    style: TextStyle(fontSize: 10.0, color: UtilColor.lightGrey)
+                                    ),
                               ),
                             ],
                           ),
@@ -210,7 +169,7 @@ class _itemList extends State<ItemList> {
                                 Icon(Icons.fire_truck),
                                 Text(
                                   '마감 임박!',
-                                  style: Theme.of(context).textTheme.subtitle1,
+                                  style: TextStyle(fontSize: 10.0, color: UtilColor.lightGrey),
                                 )
                               ]),
                             )
@@ -231,7 +190,7 @@ class _itemList extends State<ItemList> {
                           ),
                           Text(
                             '${widget.current}/${widget.total}',
-                            style: Theme.of(context).textTheme.subtitle1,
+                            style: TextStyle(fontSize: 10.0, color: UtilColor.lightGrey),
                           ),
                         ],
                       ),
@@ -244,7 +203,7 @@ class _itemList extends State<ItemList> {
               child: Container(
                 child: Text(
                   '1개 당 10,000원',
-                  style: Theme.of(context).textTheme.headline1,
+                  style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 margin: EdgeInsets.all(15),
               ),

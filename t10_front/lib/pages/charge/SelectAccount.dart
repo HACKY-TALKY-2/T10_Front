@@ -74,7 +74,7 @@ class _SelectAccountPageWidgetState extends State<SelectAccountPageWidget> {
                         decoration: InputDecoration(
                           focusColor: UtilColor.mainColor,
                           labelText: '계좌번호 입력',
-                          labelStyle: Theme.of(context).textTheme.headline1,
+                          labelStyle: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFF57636C),
@@ -127,12 +127,12 @@ class _SelectAccountPageWidgetState extends State<SelectAccountPageWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(24, 24, 0, 12),
                 child:
-                    Text('내 계좌', style: Theme.of(context).textTheme.headline1),
+                    Text('내 계좌', style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black)),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
                 child: Text('송금할 계좌를 선택하세요',
-                    style: Theme.of(context).textTheme.subtitle1),
+                    style: TextStyle(fontSize: 10.0, color: UtilColor.lightGrey)),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 44),
@@ -206,7 +206,7 @@ class AccountCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(accounts[index],
-                              style: Theme.of(context).textTheme.headline1),
+                              style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black)),
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -215,7 +215,7 @@ class AccountCard extends StatelessWidget {
                                     EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                                 child: Text(accountNumbers[index],
                                     style:
-                                        Theme.of(context).textTheme.subtitle1),
+                                        TextStyle(fontSize: 10.0, color: UtilColor.lightGrey)),
                               ),
                             ],
                           ),

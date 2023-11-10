@@ -70,9 +70,7 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 10, 0, 0),
                                   child: Text('당근머니',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headline1),
+                                      style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black)),
                                 ),
                               ),
                             ],
@@ -127,9 +125,7 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
                                           ),
                                         ),
                                         Text('충전',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .headline1),
+                                            style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black)),
                                       ]),
                                 ),
                                 onTap: () {
@@ -155,9 +151,7 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
                                     children: [
                                           Container(margin: EdgeInsets.all(5), child: Icon(Icons.attach_money, size: 20,),),
                                       Text('계좌송금',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headline1),
+                                          style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black)),
                                     ]),
                               ),
                             ],
@@ -175,7 +169,7 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                     child: Text('거래내역',
-                        style: Theme.of(context).textTheme.headline1),
+                        style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black)),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 24),
@@ -250,11 +244,11 @@ class HistoryCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('오늘의 소비 지원금',
-                          style: Theme.of(context).textTheme.headline1),
+                          style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black)),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                         child: Text('수입',
-                            style: Theme.of(context).textTheme.headline2),
+                            style: TextStyle(fontSize: 10.0, color: Colors.black)),
                       ),
                     ],
                   ),
@@ -269,12 +263,12 @@ class HistoryCard extends StatelessWidget {
                   children: [
                     Text('\500,000',
                         textAlign: TextAlign.end,
-                        style: Theme.of(context).textTheme.headline1),
+                        style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black)),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                       child: Text('Tues. 15, 4:32',
                           textAlign: TextAlign.end,
-                          style: Theme.of(context).textTheme.subtitle1),
+                          style: TextStyle(fontSize: 10.0, color: UtilColor.lightGrey)),
                     ),
                   ],
                 ),

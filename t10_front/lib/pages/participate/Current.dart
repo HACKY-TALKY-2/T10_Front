@@ -112,14 +112,14 @@ class _itemList extends State<ItemList> {
                                     right: 10, top: 20, bottom: 10),
                                 child: Text(
                                   widget.title,
-                                  style: Theme.of(context).textTheme.headline3,
+                                  style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: UtilColor.lightGrey),
                                 ),
                               ),
                               Container(
                                 margin: EdgeInsets.only(top: 20, bottom: 10),
                                 child: Text(widget.place,
                                     style:
-                                        Theme.of(context).textTheme.subtitle1),
+                                        TextStyle(fontSize: 10.0, color: UtilColor.lightGrey)),
                               ),
                             ],
                           ),
@@ -130,7 +130,7 @@ class _itemList extends State<ItemList> {
                                 Icon(Icons.fire_truck),
                                 Text(
                                   '마감',
-                                  style: Theme.of(context).textTheme.subtitle1,
+                                  style: TextStyle(fontSize: 10.0, color: UtilColor.lightGrey),
                                 )
                               ]),
                             )
@@ -151,7 +151,7 @@ class _itemList extends State<ItemList> {
                           ),
                           Text(
                             '${widget.current}/${widget.total}',
-                            style: Theme.of(context).textTheme.subtitle1,
+                            style: TextStyle(fontSize: 10.0, color: UtilColor.lightGrey),
                           ),
                         ],
                       ),
