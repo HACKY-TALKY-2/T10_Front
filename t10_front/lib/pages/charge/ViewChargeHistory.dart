@@ -26,7 +26,22 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFF1F4F8),
+      appBar: AppBar(
+          title: Container(
+            margin: EdgeInsets.all(15),
+            child: Text("계좌 충전", style: TextStyle(fontSize: 24)),
+          ),
+          elevation: 0.0,
+          backgroundColor: Colors.white,
+          actions: [
+            Container(
+                margin: EdgeInsets.only(right: 10),
+                child: Icon(
+                  Icons.shutter_speed,
+                  color: Colors.black,
+                ))
+          ]),
+      backgroundColor: Colors.white,
       body: SafeArea(
         top: true,
         child: SingleChildScrollView(
@@ -34,18 +49,11 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width,
                   decoration: BoxDecoration(
-                    color: Color(0xFFF4F3F0),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 5,
-                        color: Color(0x32171717),
-                        offset: Offset(0, 2),
-                      )
-                    ],
+                    color: Color(0xFFF1F4F8),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(16),
                       bottomRight: Radius.circular(16),
@@ -73,7 +81,7 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
                                       fontFamily: 'Outfit',
                                       color: Colors.black,
                                       fontSize: 18,
-                                      fontWeight: FontWeight.w300,
+                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 ),
@@ -96,7 +104,7 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
                                     fontFamily: 'Outfit',
                                     color: Colors.black,
                                     fontSize: 36,
-                                    fontWeight: FontWeight.normal,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ),
@@ -198,6 +206,8 @@ class _ViewChargeHistoryWidgetState extends State<ViewChargeHistoryWidget> {
                         HistoryCard(),
                         HistoryCard(),
                         HistoryCard(),
+                        HistoryCard(),
+                        HistoryCard(),
                       ],
                     ),
                   ),
@@ -222,13 +232,6 @@ class HistoryCard extends StatelessWidget {
         height: 70,
         decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 3,
-              color: Color(0x35000000),
-              offset: Offset(0, 1),
-            )
-          ],
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
             color: Color(0xFFF1F4F8),
@@ -300,7 +303,7 @@ class HistoryCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      '500,000원',
+                      '\500,000',
                       textAlign: TextAlign.end,
                       style: TextStyle(
                         fontFamily: 'Outfit',
@@ -312,7 +315,7 @@ class HistoryCard extends StatelessWidget {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                       child: Text(
-                        '23.04.12 4:32',
+                        'Tues. 15, 4:32',
                         textAlign: TextAlign.end,
                         style: TextStyle(
                           fontFamily: 'Plus Jakarta Sans',

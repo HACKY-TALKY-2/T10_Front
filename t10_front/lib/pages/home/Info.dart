@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter/services.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+>
 import 'package:t10_front/utils/colors.dart';
 
 class Info extends StatefulWidget {
@@ -10,6 +12,7 @@ class Info extends StatefulWidget {
   @override
   _info createState() => _info();
 }
+
 
   var _controller = TextEditingController();
 
@@ -128,6 +131,7 @@ void _showAlertDialog(BuildContext context, String text) {
   );
 }
 
+
 class _info extends State<Info> {
   final PageController _pageController = PageController();
   final List<String> _pageTitles = ['Image 1', 'Image 2', 'Image 3'];
@@ -204,6 +208,7 @@ class _info extends State<Info> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
+
                                     child: Text('닉네임',
                                         style: Theme.of(context)
                                             .textTheme
@@ -238,10 +243,13 @@ class _info extends State<Info> {
                                       ],
                                     ),
                                   ),
+
                                 ],
                               ),
                               Container(
                                 margin: EdgeInsets.all(10),
+
+
                                 child: Text('10,000원',
                                     style:
                                         Theme.of(context).textTheme.headline1),
@@ -378,6 +386,7 @@ class _info extends State<Info> {
           )
         ],
       ),
+
     );
   }
 

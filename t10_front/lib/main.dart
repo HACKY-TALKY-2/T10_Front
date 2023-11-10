@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:t10_front/pages/alert/ViewAlert.dart';
+
+
 import 'package:t10_front/pages/home/Home.dart';
 import 'package:t10_front/pages/participate/Participate.dart';
 import 'package:t10_front/utils/colors.dart';
@@ -47,14 +49,6 @@ class _MainApp extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(elevation: 0.0, backgroundColor: Colors.white, actions: [
-        Container(
-            margin: EdgeInsets.only(right: 10),
-            child: Icon(
-              Icons.shutter_speed,
-              color: Colors.black,
-            ))
-      ]),
       body: _pages[_currentIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(boxShadow: [
