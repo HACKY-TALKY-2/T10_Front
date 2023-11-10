@@ -28,7 +28,21 @@ class _ViewAlertPageWidgetState extends State<ViewAlertPageWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+              title: Container(
+                margin: EdgeInsets.all(15),
+                child: Text("알림", style: TextStyle(fontSize: 24)),
+              ),
+              elevation: 0.0,
+              backgroundColor: Colors.white,
+              actions: [
+                Container(
+                    margin: EdgeInsets.only(right: 10),
+                    child: Icon(
+                      Icons.shutter_speed,
+                      color: Colors.black,
+                    ))
+              ]),
           key: scaffoldKey,
           backgroundColor: const Color(0xfff5f5f5),
           body: SingleChildScrollView(
@@ -49,9 +63,9 @@ class _ViewAlertPageWidgetState extends State<ViewAlertPageWidget> {
                                   padding: EdgeInsets.zero,
                                   shrinkWrap: true,
                                   scrollDirection: Axis.vertical,
-                                  itemCount: 5,
+                                  itemCount: 7,
                                   itemBuilder: (context, index) {
-                                    return AlertCard(state: states[index]);
+                                    return AlertCard(state: states[index % 5]);
                                   }),
                             )
                           ],
@@ -107,7 +121,24 @@ class AlertCard extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Container(child: Image.asset("")), //이미지 주소 추가 필요
+              Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: Color(0xff757575),
+                      width: 1.0,
+                    ),
+                  ),
+                  margin: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                  child: Container(
+                      margin: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                      child: Icon(
+                          state == 1
+                              ? Icons.pan_tool
+                              : Icons.sentiment_very_satisfied,
+                          color: state % 2 == 0
+                              ? Colors.green
+                              : Colors.blue))), //이미지 주소 추가 필요
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                 child: InkWell(

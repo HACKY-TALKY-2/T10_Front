@@ -6,3 +6,10 @@ List<String> accountNumbers = [
   "96420154321",
   "5839201951"
 ];
+List<String> logoRef = [
+  "assets/logos/우리.jpeg",
+  "assets/logos/국민.png",
+  "assets/logos/토스.jpg",
+  "assets/logos/하나.png",
+  "assets/logos/신한.png"
+];
