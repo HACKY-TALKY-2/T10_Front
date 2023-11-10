@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:t10_front/utils/colors.dart';
 
 class ViewAlertPageWidget extends StatefulWidget {
   const ViewAlertPageWidget({
@@ -167,7 +168,7 @@ class AlertCard extends StatelessWidget {
                                     children: [
                                       Text(
                                         alertText,
-                                        style: Theme.of(context).textTheme.headline1,
+                                        style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black),
                                       ),
                                     ],
                                   ),
@@ -176,7 +177,7 @@ class AlertCard extends StatelessWidget {
                                         0, 4, 0, 0),
                                     child: Text(
                                       alertDetailText,
-                                      style: Theme.of(context).textTheme.headline2,
+                                      style: TextStyle(fontSize: 10.0, color: Colors.black),
                                     ),
                                   ),
                                 ],
@@ -195,15 +196,15 @@ class AlertCard extends StatelessWidget {
                                 children: [
                                   TextSpan(
                                     text: "yyyy.MM.dd",
-                                      style: Theme.of(context).textTheme.subtitle1,
+                                      style: TextStyle(fontSize: 10.0, color: UtilColor.lightGrey),
                                   ),
                                   TextSpan(
                                     text: ' | ',
-                                      style: Theme.of(context).textTheme.subtitle1,
+                                      style: TextStyle(fontSize: 10.0, color: UtilColor.lightGrey),
                                   ),
                                   TextSpan(
                                     text: "hh:mm",
-                                      style: Theme.of(context).textTheme.subtitle1,
+                                      style: TextStyle(fontSize: 10.0, color: UtilColor.lightGrey),
                                   ),
                                 ],
                                 style: TextStyle(

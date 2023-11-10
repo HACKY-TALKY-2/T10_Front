@@ -57,7 +57,7 @@ class _upload extends State<Upload> {
               height: 55,
               child: FloatingActionButton.extended(
                   elevation: 0,
-                  backgroundColor: UtilColor.MainColor,
+                  backgroundColor: UtilColor.mainColor,
                   onPressed: () {
                     PostPost _postInfo = PostPost(
                         memberKeyId: 3,

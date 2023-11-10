@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:t10_front/services/postService.dart';
+import 'package:provider/provider.dart';
+import 'package:t10_front/model/PostModel.dart';
 
 import 'package:t10_front/utils/colors.dart';
 
@@ -11,121 +14,153 @@ class Info extends StatefulWidget {
   @override
   _info createState() => _info();
 }
-  var _controller = TextEditingController();
 
+var _controller = TextEditingController();
 
 void _showAlertDialog(BuildContext context, String text) {
+  @override
+  TextEditingController _titleTextController = TextEditingController();
+  TextEditingController _priceTextController = TextEditingController();
+  TextEditingController _peopleTextController = TextEditingController();
+  TextEditingController _contentTextController = TextEditingController();
+  TextEditingController _urlTextController = TextEditingController();
+  FocusNode _focusNode2 = FocusNode();
+  dynamic division = 0;
+
   String IsTab = '';
 
   showDialog(
     context: context,
     builder: (BuildContext context) {
-      return StatefulBuilder(builder: (context, setState) {
-        return AlertDialog(
-          backgroundColor: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-          ),
-          title: Text('나의 구매 수량은...',
-              style: Theme.of(context).textTheme.headline1),
-          content: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 30,
-                width: 70,
-                child: TextField(
-                  keyboardType: TextInputType.number, // 키보드 타입을 숫자로 설정
-                  inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
-                  controller: _controller,
-                  cursorColor: UtilColor.mainColor,
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 0,
-                      ), // 파란색 테두리 없앰
+      return Consumer<PostService>(builder: (context, postService, child) {
+        return StatefulBuilder(builder: (context, setState) {
+          return AlertDialog(
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+            title: Text('나의 구매 수량은...',
+                style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black)),
+            content: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 30,
+                  width: 70,
+                  child: TextField(
+                    keyboardType: TextInputType.number, // 키보드 타입을 숫자로 설정
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
+                    controller: _controller,
+                    cursorColor: UtilColor.mainColor,
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 0,
+                        ), // 파란색 테두리 없앰
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Text('개', style: Theme.of(context).textTheme.headline1,)
-            ],
-          ),
-          actions: <Widget>[
-            Container(
-              margin: EdgeInsets.only(top: 0, bottom: 5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop(); // 모달 닫기
-                      setState(() {
-                        IsTab = 'confirm';
-                      });
-                    },
-                    child: Container(
-                      width: 75,
-                      height: 31,
-                      decoration: BoxDecoration(
-                        color: IsTab == 'confirm'
-                            ? Colors.white
-                            : UtilColor.mainColor,
-                        borderRadius: BorderRadius.circular(10), // 둥근 모서리 설정
-                      ),
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          text,
-                          style: IsTab == 'confirm'
-                              ? Theme.of(context).textTheme.headline1
-                              : TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w800,
-                                  fontSize: 13),
-                        ),
-                      ),
-                    ),
-                  ),
-                  TextButton(
-                    child: Container(
-                      width: 75,
-                      height: 31,
-                      decoration: BoxDecoration(
-                        color: IsTab == 'cancel'
-                            ? Colors.white
-                            : UtilColor.mainColor,
-                        borderRadius: BorderRadius.circular(10), // 둥근 모서리 설정
-                      ),
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Text('취소',
-                          style: IsTab == 'cancel'
-                              ? Theme.of(context).textTheme.headline1
-                              : TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w800,
-                                  fontSize: 13),
-                        ),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pop(); // 모달 닫기
-                      setState(() {
-                        IsTab = 'cancel';
-                      });
-                    },
-                  ),
-                ],
-              ),
+                Text(
+                  '개',
+                  style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black),
+                )
+              ],
             ),
-          ],
-        );
+            actions: <Widget>[
+              Container(
+                margin: EdgeInsets.only(top: 0, bottom: 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        PostPost _postInfo = PostPost(
+                            memberKeyId: 3,
+                            title: _titleTextController.text,
+                            content: _contentTextController.text,
+                            itemPrice: int.tryParse(_priceTextController.text),
+                            tradePlace: "역삼역",
+                            kakao: _urlTextController.text,
+                            totalItemCount:
+                                int.tryParse(_peopleTextController.text),
+                            totalPeople:
+                                int.tryParse(_peopleTextController.text),
+                            location: "역삼역 3번 출구",
+                            multipartFile: null);
+                        postService.uploadPost(_postInfo);
+                        Navigator.of(context).pop(); // 모달 닫기
+                        setState(() {
+                          IsTab = 'confirm';
+                        });
+                      },
+                      child: Container(
+                        width: 75,
+                        height: 31,
+                        decoration: BoxDecoration(
+                          color: IsTab == 'confirm'
+                              ? Colors.white
+                              : UtilColor.mainColor,
+                          borderRadius: BorderRadius.circular(10), // 둥근 모서리 설정
+                        ),
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            text,
+                            style: IsTab == 'confirm'
+                                ? TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black)
+                                : TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 13),
+                          ),
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      child: Container(
+                        width: 75,
+                        height: 31,
+                        decoration: BoxDecoration(
+                          color: IsTab == 'cancel'
+                              ? Colors.white
+                              : UtilColor.mainColor,
+                          borderRadius: BorderRadius.circular(10), // 둥근 모서리 설정
+                        ),
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            '취소',
+                            style: IsTab == 'cancel'
+                                ? TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black)
+                                : TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 13),
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop(); // 모달 닫기
+                        setState(() {
+                          IsTab = 'cancel';
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          );
+        });
       });
     },
   );
 }
+
 class _info extends State<Info> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
@@ -236,7 +271,7 @@ class _info extends State<Info> {
                                 margin: EdgeInsets.all(10),
                                 child: Text('10,000원',
                                     style:
-                                        Theme.of(context).textTheme.headline1),
+                                        TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black)),
                               )
                             ],
                           ),
@@ -261,11 +296,11 @@ class _info extends State<Info> {
                       children: [
                         Text(
                           '물 사세요',
-                          style: Theme.of(context).textTheme.headline1,
+                          style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black),
                         ),
                         Text(
                           '2023-11-11 2:53',
-                          style: Theme.of(context).textTheme.subtitle1,
+                          style: TextStyle(fontSize: 10.0, color: UtilColor.lightGrey),
                         )
                       ],
                     ),
@@ -277,8 +312,8 @@ class _info extends State<Info> {
                           margin: EdgeInsets.only(top: 5),
                           child: Text(
                             // 'ds',
-                            '물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n',
-                            style: Theme.of(context).textTheme.subtitle2,
+                            '물 사세요 물 안 사세요?\n물 사세요 물 안 사세요?\n',
+                            style: TextStyle(fontSize: 13.0, color: Colors.black),
                           ),
                         ),
                       ],
@@ -305,7 +340,7 @@ class _info extends State<Info> {
                       margin: EdgeInsets.only(left: 10, top: 10),
                       child: Text(
                         '나는 지금...',
-                        style: Theme.of(context).textTheme.headline2,
+                        style: TextStyle(fontSize: 10.0, color: Colors.black),
                       ),
                     ),
                     Row(
@@ -320,7 +355,7 @@ class _info extends State<Info> {
                         ),
                         Text(
                           '(10개)',
-                          style: Theme.of(context).textTheme.subtitle1,
+                          style: TextStyle(fontSize: 10.0, color: UtilColor.lightGrey),
                         ),
                         Container(
                           margin: EdgeInsets.only(left: 10),
@@ -340,7 +375,7 @@ class _info extends State<Info> {
                       margin: EdgeInsets.only(left: 10),
                       child: Text(
                         '* 실제 정산액은 아니에요!',
-                        style: Theme.of(context).textTheme.headline2,
+                        style: TextStyle(fontSize: 10.0, color: Colors.black),
                       ),
                     ),
                   ],
@@ -371,6 +406,7 @@ class _info extends State<Info> {
         ],
       ),
     );
+    ;
   }
 
   Widget _buildPage(String title) {
