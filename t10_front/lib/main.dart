@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:t10_front/pages/home/Home.dart';
+import 'package:t10_front/pages/participate/Participate.dart';
+import 'package:t10_front/utils/colors.dart';
 
 void main() {
   runApp(
@@ -25,7 +27,7 @@ class _MainApp extends State<MainApp> {
 
     _pages = [
       Home(),
-      Home(),
+      Participate(),
       Home(),
       Home(),
     ];
@@ -34,12 +36,14 @@ class _MainApp extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions: [
+      appBar: AppBar(elevation: 0.0, backgroundColor: Colors.white, actions: [
         Container(
-          margin: EdgeInsets.only(right: 10), 
-          child: Icon(Icons.abc))
+            margin: EdgeInsets.only(right: 10),
+            child: Icon(
+              Icons.shutter_speed,
+              color: Colors.black,
+            ))
       ]),
-      extendBody: true,
       body: _pages[_currentIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(boxShadow: [
@@ -52,6 +56,7 @@ class _MainApp extends State<MainApp> {
         ]),
         height: 120,
         child: BottomNavigationBar(
+          selectedIconTheme: IconThemeData(color: UtilColor.MainColor),
           selectedLabelStyle: TextStyle(
             color: Color.fromRGBO(48, 48, 48, 0.8),
             fontSize: 10,
@@ -79,11 +84,13 @@ class _MainApp extends State<MainApp> {
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: TabItem(currentIndex: 2, name: '충전', icon: Icons.charging_station),
+              icon: TabItem(
+                  currentIndex: 2, name: '충전', icon: Icons.charging_station),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: TabItem(currentIndex: 3, name: '알림', icon: Icons.notification_add),
+              icon: TabItem(
+                  currentIndex: 3, name: '알림', icon: Icons.notification_add),
               label: '',
             ),
           ],
